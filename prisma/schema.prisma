@@ -14,6 +14,10 @@ model tasks{
   id String @id @default(uuid())
   name String
   quantity Int
+
+  userId String
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+
 }
 
 model attachments{
@@ -21,4 +25,16 @@ model attachments{
   name String
   description String
   deadline DateTime
+  status Boolean @default(false)
+}
+
+model user{
+  id String @id @default(uuid())
+  name String
+  email String
+
+  tasks tasks[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

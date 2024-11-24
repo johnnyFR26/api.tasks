@@ -1,3 +1,4 @@
+### route to create a task
 POST http://localhost:3000/tasks
 Content-Type: application/json
 
@@ -5,3 +6,36 @@ Content-Type: application/json
   "name": "Task 1",
   "quantity": 12
 }
+
+### route to update a task
+
+PUT http://localhost:3000/tasks/c5204281-14b3-4b43-8f49-930e00c1fc15
+Content-Type: application/json
+
+{
+  "name": "Task 3",
+  "quantity": 15
+}
+
+### route to get all tasks
+
+GET http://localhost:3000/tasks
+
+###
+
+DELETE http://localhost:3000/tasks
+
+###
+
+POST http://localhost:3000/attachments
+Content-Type: application/json
+
+{
+  "name": "teste",
+  "description": "testqar",
+  "deadline": "2024-12-01T00:00:00Z"
+}
+
+
+  
+
