@@ -28,4 +28,22 @@ export async function taskRoutes(fastify: FastifyInstance) {
         url: "/tasks",
         handler: controller.delete
     })
+
+    fastify.route({
+        method: "POST",
+        url: "/tasks/createMany",
+        handler: controller.createMany
+    })
+
+    fastify.route({
+        method: "GET",
+        url: "/tasks/getByUserId/:id",
+        handler: controller.getByUserId
+    })
+
+    fastify.route({
+        method: "PUT",
+        url: "/tasks/updateMany",
+        handler: controller.updateMany
+    })
 }

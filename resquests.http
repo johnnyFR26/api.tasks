@@ -23,6 +23,10 @@ GET http://localhost:3000/tasks
 
 ###
 
+GET http://localhost:3000/tasks/getByUserId/86faaea8-45d6-4009-9bfc-4b3e1287b05c
+
+###
+
 DELETE http://localhost:3000/tasks
 
 ###
@@ -36,6 +40,42 @@ Content-Type: application/json
   "deadline": "2024-12-01T00:00:00Z"
 }
 
+###
 
-  
+POST http://localhost:3000/tasks/createMany
+Content-Type: application/json
 
+{
+  "tasks": [
+    { "name": "Instalação/atualização do desktop", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Não envia mensagem de saudação", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Não envia mensagem de cashback", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Não envia mensagem de status", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Robô não carrega (não gerou QRCODE)", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Robô leu o QRCODE mas não carrega", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Configurar e/ou instalar impressora", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Encaminhar acesso", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Tenta reproduzir bug", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Contratar novo painel", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Renovação painel", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Reativação de painel", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Venda de cardápio", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Preenchimento / ajuda com o menu 'meu perfil'", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Montagem de cardápio ou ajuda cardápio", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Configurar impressora do celular/computador", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Configurar mensagem automática no celular", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Preenchimento / ajuda formas de pagamento (Online/manual)", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Gerar QRCODE para o cliente", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Questão NFC-e", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Sugestão", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Cliente informa que os itens não estão aparecendo (disponibilidade)", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Redefinir senha de acesso / financeira", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Configurações de mesas / encomendas/pdv", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Pedido teste / PDV (Passo 5)", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Abertura de card", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Cancelamento", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Gerar boleto ou enviar pix para pagamento", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Confirmação de pagamento (cliente enviou comprovante)", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" },
+    { "name": "Liberação de painel (arquivo não encontrado)", "quantity": 0, "userId": "1266fc7b-63ce-4211-b95e-60575be0a517" }
+  ]
+}

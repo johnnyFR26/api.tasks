@@ -10,8 +10,26 @@ export class TaskController {
         response.send(task)
     }
 
+    async createMany(request: any, response: any) {
+        const data = request.body.tasks
+        const tasks = await db.tasks.createMany({
+            data
+        })
+        response.send(tasks)
+    }
+
     async get(request: any, response: any) {
         const tasks = await db.tasks.findMany()
+        response.send(tasks)
+    }
+
+    async getByUserId(request: any, response: any) {
+        const userId = request.params.id
+        const tasks = await db.tasks.findMany({
+            where: {
+                userId
+            }
+        })
         response.send(tasks)
     }
 
@@ -25,6 +43,14 @@ export class TaskController {
             data
         })
         response.send({status: "updated"},task)
+    }
+
+    async updateMany(request: any, response: any) {
+        const data = request.body.tasks
+        const tasks = await db.tasks.updateMany({
+            data
+        })
+        response.send(tasks)
     }
 
     async delete(request: any, response: any) {
