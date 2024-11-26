@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
+    "postinstall": "npx prisma generate",
     "dev": "tsx watch server.ts",
     "build": "npx prisma generate",
     "start": "tsx server.ts",
