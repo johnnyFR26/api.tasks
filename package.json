@@ -1,9 +1,8 @@
 {
-  "type": "module",
   "name": "prismaapi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "dev": "tsx watch server.ts",
     "build": "prisma generate && npx prisma migrate dev && tsx server.ts",
