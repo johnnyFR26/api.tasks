@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch server.ts",
-    "build": "prisma generate && tsx server.ts",
+    "build": "prisma generate && npx prisma migrate dev && tsx server.ts",
     "start": "tsx server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
