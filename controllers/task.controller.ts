@@ -1,3 +1,4 @@
+import { user } from './../node_modules/.prisma/client/index.d';
 import { Http2ServerRequest } from "http2"
 import { db } from "../lib/db"
 
@@ -46,8 +47,12 @@ export class TaskController {
     }
 
     async updateMany(request: any, response: any) {
+        const userId = request.params.id
         const data = request.body.tasks
         const tasks = await db.tasks.updateMany({
+            where: {
+                userId
+            },
             data
         })
         response.send(tasks)

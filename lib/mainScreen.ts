@@ -50,6 +50,31 @@ export const mainScreen = () => {
                 background-color: #007bff;
                 color: #fff;
             }
+            .form {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .form input {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+            .form button {
+                padding: 10px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            .form button:hover {
+                background-color: #0056b3;
+            }
         </style>
     </head>
     <body>
@@ -61,11 +86,55 @@ export const mainScreen = () => {
         </div>
         <div class="content">
             <ul class="menu">
-                <li><a href="/tasks">Tasks</a></li><br>
-                <li><a href="/attachments">Attachments</a><br><br></li>
-                <li><a href="/users">Users</a><br></li>
+                <li><a href="/tasks">Tasks</a></li><br><br>
+                <li><a href="/attachments">Attachments</a></li><br><br>
+                <li>
+                    <a href="/users">Users</a><br><br>
+                    <div class="form">
+                        <p>Cadastro de usuário</p>
+                        <input type="email" placeholder="Email">
+                        <input type="text" placeholder="Nome">
+                        <button>Salvar</button>
+                    </div>
+                </li>
             </ul>
         </div>
+        <script>
+            const emailInput = document.querySelector('input[type="email"]');
+            const nameInput = document.querySelector('input[type="text"]');
+            const saveButton = document.querySelector('button');
+
+            saveButton.addEventListener('click', () => {
+                const email = emailInput.value;
+                const name = nameInput.value;
+
+                if (!email || !name) {
+                    alert('Por favor, preencha todos os campos!');
+                    return;
+                }
+
+                fetch('/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, name })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        emailInput.value = '';
+                        nameInput.value = '';
+                        alert('Usuário cadastrado com sucesso!');
+                    } else {
+                        alert('Erro ao cadastrar o usuário.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro de conexão ao cadastrar o usuário.');
+                });
+            });
+        </script>
     </body>
     </html>
     `;
