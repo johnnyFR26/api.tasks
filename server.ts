@@ -25,7 +25,8 @@ server.listen({ port: 3000 }, (err, address) => {
 
 server.get("/", async (request, reply) => {
   reply.type("text/html");
-  reply.send(mainScreen());
+  const html = await mainScreen();
+  reply.send(html);
 });
 
 export default async (req: any, res: any) => {

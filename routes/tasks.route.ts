@@ -43,7 +43,7 @@ export async function taskRoutes(fastify: FastifyInstance) {
 
     fastify.route({
         method: "PUT",
-        url: "/tasks/updateMany",
+        url: "/tasks/updateMany/:userId",
         handler: controller.updateMany
     })
 }

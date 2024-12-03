@@ -1,4 +1,12 @@
-export const mainScreen = () => {
+import { db } from "./db";
+
+export const mainScreen = async () => {
+    async function getUsers() {
+        return await db.user.findMany(); // Retorna a lista de usuários
+    }
+
+    const users = await getUsers(); // Aguarda a resolução da Promise antes de gerar o HTML
+
     return `
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -90,6 +98,13 @@ export const mainScreen = () => {
                 <li><a href="/attachments">Attachments</a></li><br><br>
                 <li>
                     <a href="/users">Users</a><br><br>
+                    <ul>
+                        ${users
+                          .map(
+                              (user) => `<li>${user.name} (${user.email})</li>`
+                          )
+                          .join('')}
+                    </ul>
                     <div class="form">
                         <p>Cadastro de usuário</p>
                         <input type="email" placeholder="Email">
@@ -124,6 +139,7 @@ export const mainScreen = () => {
                     if (response.ok) {
                         emailInput.value = '';
                         nameInput.value = '';
+                        console.table(response.user)
                         alert('Usuário cadastrado com sucesso!');
                     } else {
                         alert('Erro ao cadastrar o usuário.');
