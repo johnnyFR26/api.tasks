@@ -47,7 +47,7 @@ export class TaskController {
     }
 
     async updateMany(request: any, response: any) {
-        const userId = request.params.id
+        const userId = request.params.userId
         const data = request.body.tasks
         const tasks = await db.tasks.updateMany({
             where: {
